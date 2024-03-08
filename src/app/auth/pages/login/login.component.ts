@@ -22,8 +22,6 @@ export class LoginComponent {
   });
 
   login() {
-    this.queryService
-      .login(this.LoginForm.value.dni!, this.LoginForm.value.code!)
-      .subscribe((resp) => console.log(resp));
+    
   }
 }

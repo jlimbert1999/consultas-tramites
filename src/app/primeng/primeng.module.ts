@@ -7,7 +7,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { ButtonModule } from 'primeng/button';
-
+import { CardModule } from 'primeng/card';
+import { TabViewModule } from 'primeng/tabview';
+import { MessagesModule } from 'primeng/messages';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -19,6 +21,9 @@ import { ButtonModule } from 'primeng/button';
     KeyFilterModule,
     InputTextModule,
     InputNumberModule,
+    CardModule,
+    TabViewModule,
+    MessagesModule
   ],
 })
 export class PrimengModule {}

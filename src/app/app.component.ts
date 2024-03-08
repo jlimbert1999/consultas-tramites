@@ -23,9 +23,9 @@ export class AppComponent {
         routerLink: 'home',
       },
       {
-        label: 'Ingresar',
+        label: 'Consultar',
         icon: 'pi pi-fw pi-user',
-        routerLink: 'login',
+        routerLink: 'consultas',
       },
     ];
   }

@@ -9,7 +9,10 @@ export class QueryService {
   url = environment.server_url;
   constructor(private http: HttpClient) {}
 
-  login(dni: string, code: string) {
-    return this.http.post(`${this.url}/applicants`, { dni, code });
+  getData(dni: string, pin: number) {
+    return this.http.post<{ procedure: any; workflow: any[] }>(
+      `${this.url}/applicants`,
+      { dni, pin }
+    );
   }
 }

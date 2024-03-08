@@ -1,1 +1,110 @@
-<p>information works!</p>,
+@if(data){
+<div class="flex justify-content-center align-content-center mt-7">
+  <div class="surface-card p-4 shadow-2 border-round w-24rem">
+    <div class="text-center mb-5">
+      <img
+        src="../../../../assets/img/escudo-alcaldia.png"
+        alt="Image"
+        height="50"
+      />
+      <p>Consulta de tramite</p>
+    </div>
+    <div>
+      <form [formGroup]="QueryForm">
+        <label for="dni" class="block mb-2"> Numero de carnet </label>
+        <input
+          id="dni"
+          pInputText
+          class="w-full"
+          formControlName="dni"
+          pKeyFilter="alphanum"
+          required
+        />
+
+        <div class="field p-fluid mt-4">
+          <label for="pin" class="block mb-2">Pin del tramite</label>
+          <input
+            id="pin"
+            pInputText
+            pKeyFilter="int"
+            class="w-full"
+            formControlName="pin"
+            required
+          />
+        </div>
+      </form>
+
+      <button
+        pButton
+        pRipple
+        label="CONSULTAR"
+        class="w-full"
+        [disabled]="QueryForm.invalid"
+        (click)="search()"
+      ></button>
+    </div>
+  </div>
+</div>
+} @else {
+<div class="px-0 md:px-6">
+  <p-tabView>
+    <p-tabPanel header="Informacion">
+      <p-card header="Informacion del tramite">
+        <div class="grid nested-grid">
+          <div class="col-12 md:col-4">
+            <div class="grid">
+              <div class="col-fixed">Firstname</div>
+              <div class="col">
+                Adipisicing do Lorem esse aliqua occaecat ipsum.
+              </div>
+            </div>
+          </div>
+          <div class="col-12 md:col-8">
+            <div class="field grid">
+              <label for="firstname3" class="col-fixed" style="width: 100px"
+                >Firstname</label
+              >
+              <div class="col">
+                <input
+                  id="firstname3"
+                  type="text"
+                  class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="grid nested-grid">
+          <div class="col-12">
+            <div class="grid">
+              <div class="col-4">CODIGO:</div>
+              <div class="col-8">cigo</div>
+            </div>
+          </div>
+
+          <!-- <div class="col-4 text-left font-bold">TIPO:</div>
+          <div class="col-8">
+            Et fugiat et deserunt eiusmod duis commodo cillum enim.
+          </div> -->
+          <div class="col-12 md:col-6">
+            <div class="grid">
+              <div class="col-4 text-left font-bold">CODIGO:</div>
+              <div class="col-8 text-left">cigo</div>
+              <div class="col-4 text-left font-bold">REFERENCIA:</div>
+              <div class="col-8 text-left">sds</div>
+            </div>
+          </div>
+          <div class="col-12 md:col-6">ds</div>
+          <div class="col-4" style="width: 200px">
+            <div class="text-leff font-bold">CODIGO:</div>
+          </div>
+          <div class="col-8">
+            <div class="text-center font-bold">nombre completo</div>
+          </div>
+        </div>
+      </p-card>
+    </p-tabPanel>
+    <p-tabPanel header="Flujo"> </p-tabPanel>
+  </p-tabView>
+</div>
+}
