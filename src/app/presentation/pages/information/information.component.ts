@@ -21,7 +21,7 @@ import { procedureResponse } from '../../../infrastructure/interfaces/procedure-
 export class InformationComponent {
   fb = inject(FormBuilder);
   queryService = inject(QueryService);
-  data: procedureResponse | undefined;
+  data = signal<procedureResponse | null>(null);
   workflow: any;
 
   messages: any = [
@@ -42,7 +42,8 @@ export class InformationComponent {
         +this.QueryForm.get('pin')?.value!
       )
       .subscribe((data) => {
-        this.data = data.procedure;
+        this.data.set(data.procedure)
+        console.log(data.workflow);
       });
   }
 
