@@ -10,6 +10,8 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { TabViewModule } from 'primeng/tabview';
 import { MessagesModule } from 'primeng/messages';
+import { ToastModule } from 'primeng/toast';
+import { ToolbarModule } from 'primeng/toolbar';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -23,7 +25,9 @@ import { MessagesModule } from 'primeng/messages';
     InputNumberModule,
     CardModule,
     TabViewModule,
-    MessagesModule
+    MessagesModule,
+    ToastModule,
+    ToolbarModule
   ],
 })
 export class PrimengModule {}

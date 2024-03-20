@@ -5,11 +5,13 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { routes } from './app.routes';
 import { loggingInterceptor } from './core/interceptor';
+import { MessageService } from 'primeng/api';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(withInterceptors([loggingInterceptor])),
     provideAnimations(),
+    MessageService,
   ],
 };

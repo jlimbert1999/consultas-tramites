@@ -1,5 +1,7 @@
-@if(!data()){
-<div class="flex justify-content-center align-content-center mt-7">
+@if(data()){
+<div
+  class="flex justify-content-center align-content-center mt-7 fadeinup animation-duration-500"
+>
   <div class="surface-card p-4 shadow-2 border-round w-24rem">
     <div class="text-center mb-5">
       <img
@@ -45,17 +47,36 @@
     </div>
   </div>
 </div>
-} @else {
 
-<div class="px-0 md:px-6">
+} @else {
+<div class="grid">
+  <div class="col-fixed" style="width: 100px">
+    <div class="text-center p-3 border-round-sm bg-primary font-bold">
+      <i class="pi pi-user" style="font-size: 1rem"></i>
+    </div>
+  </div>
+  <div class="col">
+    <div class="text-center p-3 border-round-sm bg-primary font-bold">auto</div>
+  </div>
+</div>
+<p-toolbar>
+  <div class="p-toolbar-group-start">
+    <p-button [text]="true" label="Atras" icon="pi pi-angle-left"></p-button>
+  </div>
+  <div class="p-toolbar-group-end">
+    <button pButton icon="pi pi-print" class="mr-2"></button>
+  </div>
+</p-toolbar>
+<div class="px-0 md:px-6 fadein animation-duration-300">
   <p-tabView>
     <p-tabPanel header="Informacion">
+      <p>dsds</p>
       <p-card header="Informacion del tramite">
         <div class="grid nested-grid">
           <div class="col-12 md:col-4">
             <div class="grid">
               <div class="col-fixed">Codigo</div>
-              <div class="col">APR-0000....</div>
+              <div class="co l">APR-0000....</div>
             </div>
           </div>
           <div class="col-12 md:col-8">
@@ -88,9 +109,9 @@
           <div class="col-12 md:col-6">
             <div class="grid">
               <div class="col-4 text-left font-bold">CODIGO:</div>
-              <div class="col-8 text-left">cigo</div>
-              <div class="col-4 text-left font-bold">REFERENCIA:</div>
-              <div class="col-8 text-left">sds</div>
+              <div class="col-8 text-left">{{ procedure?.code }}</div>
+              <div class="col-4 text-left font-bold">REFERENCIA</div>
+              <div class="col-8 text-left">{{ procedure?.reference }}</div>
             </div>
           </div>
           <div class="col-12 md:col-6">ds</div>
@@ -109,3 +130,5 @@
   </p-tabView>
 </div>
 }
+
+<p-toast position="bottom-center"></p-toast>

@@ -5,8 +5,8 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { PrimengModule } from '../../../primeng/primeng.module';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { PrimengModule } from '../../../primeng/primeng.module';
 import { QueryService } from '../../../services/query.service';
 import { procedureResponse } from '../../../infrastructure/interfaces/procedure-response.interface';
 
@@ -19,15 +19,10 @@ import { procedureResponse } from '../../../infrastructure/interfaces/procedure-
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InformationComponent {
-  fb = inject(FormBuilder);
+  private fb = inject(FormBuilder);
   queryService = inject(QueryService);
   data = signal<procedureResponse | null>(null);
   workflow: any;
-
-  messages: any = [
-    { severity: 'success', summary: 'Success', detail: 'Message Content' },
-    { severity: 'success', summary: 'Success', detail: 'Message Content' },
-  ];
 
   QueryForm = this.fb.nonNullable.group({
     dni: ['', Validators.required],
@@ -42,12 +37,12 @@ export class InformationComponent {
         +this.QueryForm.get('pin')?.value!
       )
       .subscribe((data) => {
-        this.data.set(data.procedure)
-        console.log(data.workflow);
+        console.log(data);
+        this.data.set(data.procedure);
       });
   }
 
   get procedure() {
-    return this.data!;
+    return this.data()!;
   }
 }
